@@ -2,8 +2,9 @@
 
 <head>
     <title>pesinasiller</title>
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.19/p5.js"></script>
+    <script language="javascript" type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.4/p5.js"></script>
+    <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.4/addons/p5.sound.min.js"></script>
     <script>
 
         var palabras = ["Jos\u00E9", "Carlos", "Pesina", "Siller"];
@@ -30,6 +31,11 @@
         var scalar = 70;
 
         var color1, color2;
+        var song;
+        function preload() {
+          song = loadSound('bubble.wav');
+        }
+
 
         function setup() {
             createCanvas(640, 360);
@@ -54,6 +60,10 @@
 
         function draw() {
 
+      /*    var speed = map(mouseY, 0.1, height, 0, 2);
+          speed = constrain(speed, 0.01, 4);
+          song.rate(speed);
+        */
 
             background(255);
 
@@ -115,6 +125,10 @@
             $('#texto').html(palabras[palabrasCont]);
             palabrasCont++;
             palabrasCont = palabrasCont % palabras.length;
+
+
+
+            song.play();
 
         }
 
