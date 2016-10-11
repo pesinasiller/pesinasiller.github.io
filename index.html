@@ -1,147 +1,154 @@
 <html>
-  <head>
+
+<head>
     <title>pesinasiller</title>
+    <script src="http://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.19/p5.js"></script>
     <script>
+    
+        var palabras = ["Jos\u00E9", "Carlos", "Pesina", "Siller"];
+        var palabrasCont = 0;
+
+        var xspacing = 8; // How far apart should each horizontal location be spaced
+        var w; // Width of entire wave
+
+        var theta = 0.0; // Start angle at 0
+        var theta2 = 0.0;
+        var amplitude = 15.0; // Height of wave
+        var period = 200.0; // How many pixels before the wave repeats
+        var period2 = -80.0; // How many pixels before the wave repeats
+        var dx; // Value for incrementing X, a function of period and xspacing
+        var dy; // Value for incrementing X, a function of period and xspacing
+        var yvalues = []; // Using an array to store height values for the wave
+        var yvalues2 = [];
 
 
-     var xspacing = 8;   // How far apart should each horizontal location be spaced
-    var w;              // Width of entire wave
 
-    var theta = 0.0;  // Start angle at 0
-    var theta2 = 0.0;
-    var amplitude = 15.0;  // Height of wave
-    var period = 200.0;  // How many pixels before the wave repeats
-    var period2 = -80.0;  // How many pixels before the wave repeats
-    var dx;  // Value for incrementing X, a function of period and xspacing
-    var dy;  // Value for incrementing X, a function of period and xspacing
-    var yvalues = [] ;  // Using an array to store height values for the wave
-    var yvalues2 = [];
-    /***********************/
+        var x1, x2, y1, y2;
+        var angle1 = 0;
+        var angle2 = 0;
+        var scalar = 70;
 
-    //   static int   FRAME_RATE = 30;
+        var color1, color2;
 
-    var x1, x2, y1, y2;
-    var angle1=0;
-    var angle2=0;
-    var scalar = 70;
-    //GifMaker gifExport;
-    function setup() {
-      createCanvas(640, 360);
+        function setup() {
+            createCanvas(640, 360);
 
-  //     frameRate(60);
-    //blendMode(DARKEST);
-  //    frameRate(FRAME_RATE);
+            color1 = color(255, 204, 0);
+            color2 = color(255, 204, 0);
 
-    /******/
-     w = width;
-      dx = (TWO_PI / period) * xspacing;
-      dy = (TWO_PI / period2) * xspacing;
-      yvalues = new Array(w/xspacing);
+            w = width;
 
-       yvalues2 = new Array(w/xspacing);
+            dx = (TWO_PI / period) * xspacing;
+            dy = (TWO_PI / period2) * xspacing;
+
+            yvalues = new Array(w / xspacing);
+            yvalues2 = new Array(w / xspacing);
 
 
-      /*****/
 
-     //  gifExport = new GifMaker(this, "export.gif");
-    //gifExport.setRepeat(0);
-      // gifExport.setTransparent(255, 255, 255);
-    }
-
+        }
 
 
 
 
-    function draw() {
+        function draw() {
 
 
-    background(255);
-
-      /******/
-      calcWave();
-      calcWave2();
-      /******/
+            background(255);
 
 
-      var ang1 = radians(angle1);
-      var ang2 = radians(angle2);
+            dy = (TWO_PI / mouseX) * xspacing;
+            dx = (TWO_PI / mouseY) * xspacing;
 
-      x1 = width/2 + (scalar * cos(ang1));
-      x2 = width/2 + (scalar * cos(ang2));
-
-      y1 = height/2 + (scalar * sin(ang1));
-      y2 = height/2 + (scalar * sin(ang2));
+            calcWave();
+            calcWave2();
 
 
 
+            var ang1 = radians(angle1);
+            var ang2 = radians(angle2);
 
-    for (r=-100;r<width*2;r+=100){
-
-          for ( x = 1; x < yvalues.length; x++) {
-
-            stroke(0,140,140);
-//line((width/2-yvalues2[yvalues2.length-x-1]*.5-y2)+r-150,x*xspacing, (yvalues[yvalues.length-x-1]*.2+y1)+r-150, x*xspacing);
-
- stroke(0);
-   line(r+yvalues[yvalues.length-x-1],-50+x*xspacing+7, r+yvalues[yvalues.length-x-1]+(y2*.3), -50+x*xspacing+7);
-     stroke(50);
-   line(r+yvalues2[yvalues2.length-x-1]-y2,-50+x*xspacing, r+yvalues2[yvalues2.length-x-1]+(y2*.3)-y2, -50+x*xspacing);
+            x1 = width / 2 + (scalar * cos(ang1));
+            x2 = width / 2 + (scalar * cos(ang2));
+            y1 = height / 2 + (scalar * sin(ang1));
+            y2 = height / 2 + (scalar * sin(ang2));
 
 
+            for (r = -100; r < width * 2; r += 100) {
+                for (x = 1; x < yvalues.length; x++) {
+
+                    stroke(0, 140, r);
+                    line((width / 2 - yvalues2[yvalues2.length - x - 1] * .5 - y2) + r - 150,
+                     x * xspacing,
+                     (yvalues[yvalues.length - x - 1] * .2 + y1) + r - 150,
+                      x * xspacing);
+
+                    stroke(color1);
+                    line(r + yvalues[yvalues.length - x - 1],
+                       -50 + x * xspacing + 7,
+                        r + yvalues[yvalues.length - x - 1] + (y2 * .3),
+                         -50 + x * xspacing + 7);
+
+                    stroke(color2);
+                    line(r + yvalues2[yvalues2.length - x - 1] - y2,
+                       -50 + x * xspacing,
+                       r + yvalues2[yvalues2.length - x - 1] + (y2 * .3) - y2,
+                        -50 + x * xspacing);
+                }
+            }
 
 
 
-      }}
+            angle1 += 2;
+            angle2 += 3;
 
-
-
-      angle1 += 2;
-      angle2 += 3;
-
-    //  saveFrame("line-######.png");
-    // gifExport.setDelay(1000/FRAME_RATE);
-     // gifExport.addFrame();
-
-    }
-
-    function calcWave() {
-      // Increment theta (try different values for 'angular velocity' here
-      theta += 0.10;
-
-
-      // For every x value, calculate a y value with sine function
-      var x = theta;
-      for (i = 0; i < yvalues.length; i++) {
-        yvalues[i] = sin(x)*amplitude;
-        x+=dx;
-      }
-    }
-
-    function calcWave2() {
-      // Increment theta (try different values for 'angular velocity' here
-      theta2 += 0.20;
-
-      // For every x value, calculate a y value with sine function
-      var x = theta2;
-      for (i = 0; i < yvalues2.length; i++) {
-        yvalues2[i] = cos(x)*amplitude;
-        x+=dy;
-      }
-    }
+        }
 
 
 
 
+        function mouseClicked() {
+            color1 = color(random(0, 255), 204, 0);
+            color2 = color(155, random(0, 255), 0);
+
+            $('#texto').html(palabras[palabrasCont]);
+            palabrasCont++;
+            palabrasCont = palabrasCont % palabras.length;
+
+        }
 
 
 
+        function calcWave() {
+            // Increment theta (try different values for 'angular velocity' here
+            theta += 0.10;
 
+            // For every x value, calculate a y value with sine function
+            var x = theta;
+            for (i = 0; i < yvalues.length; i++) {
+                yvalues[i] = sin(x) * amplitude;
+                x += dx;
+            }
+        }
 
+        function calcWave2() {
+            // Increment theta (try different values for 'angular velocity' here
+            theta2 += 0.20;
+
+            // For every x value, calculate a y value with sine function
+            var x = theta2;
+            for (i = 0; i < yvalues2.length; i++) {
+                yvalues2[i] = cos(x) * amplitude;
+                x += dy;
+            }
+        }
     </script>
-  </head>
-  <body>
-  </body>
+</head>
 
+<body style="text-align:center; align-items: center;margin: 0;
+  display: flex;justify-content: center;">
+    <div id="texto" style="position:fixed;font-size:20px">click</div>
+</body>
 
 </html>
