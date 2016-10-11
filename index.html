@@ -52,6 +52,14 @@
             yvalues2 = new Array(w / xspacing);
 
 
+            reverb = new p5.Reverb();
+            song.disconnect(); // so we'll only hear reverb...
+
+             // connect soundFile to reverb, process w/
+             // 3 second reverbTime, decayRate of 2%
+             reverb.process(song, 3, 2);
+
+
 
         }
 
@@ -60,10 +68,10 @@
 
         function draw() {
 
-      /*    var speed = map(mouseY, 0.1, height, 0, 2);
+         var speed = map(mouseY, 0.1, height, 0, 2);
           speed = constrain(speed, 0.01, 4);
           song.rate(speed);
-        */
+
 
             background(255);
 
