@@ -69,7 +69,7 @@
         function draw() {
 
          var speed = map(mouseY, 0.1, height, 0, 2);
-          speed = constrain(speed, 4,0.05);
+          speed = constrain(speed, 0.05,4);
           song.rate(speed);
 
 
@@ -139,7 +139,9 @@
             song.play();
 
         }
-
+        function mouseReleased() {
+          song.stop();
+        }
 
 
         function calcWave() {
