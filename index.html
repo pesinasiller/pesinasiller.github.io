@@ -6,18 +6,18 @@
     <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.4/p5.js"></script>
     <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.4/addons/p5.sound.min.js"></script>
     <script>
-    
-    
-     /**********************************************                         
-                                .  .          
-    ,-. ,-. ,-. . ,-. ,-. ,-. . |  |  ,-. ,-. 
-    | | |-' `-. | | | ,-| `-. | |  |  |-' |   
-    |-' `-' `-' ' ' ' `-^ `-' ' `' `' `-' '   
-    |                                         
-    '                                         
+
+
+     /**********************************************
+                                .  .
+    ,-. ,-. ,-. . ,-. ,-. ,-. . |  |  ,-. ,-.
+    | | |-' `-. | | | ,-| `-. | |  |  |-' |
+    |-' `-' `-' ' ' ' `-^ `-' ' `' `' `-' '
+    |
+    '
      **********************************************/
-     
-       function detectmob() { 
+
+       function detectmob() {
          if( navigator.userAgent.match(/Android/i)
          || navigator.userAgent.match(/webOS/i)
          || navigator.userAgent.match(/iPhone/i)
@@ -32,12 +32,12 @@
             return false;
           }
         }
-    
+
     if (detectmob()) {
         window.location = "m.html";
-                
-     } 
-                          
+
+     }
+
   var palabras = [  "Carlos Pesina Siller",
                   "front-end developer",
                   "html / css / js / php ",
@@ -51,12 +51,12 @@
                 "<a href='http://www.monotypo.com/' target='_blank'>www.monotypo.com</a><br>"+
                   //"<br>"+
                   "<a href='http://www.goldjet.mx/' target='_blank'>www.goldjet.mx</a><br>",
-                  
+
                   "<a href='mailto:carlospesina@gmail.com' target='_blank'>carlospesina@gmail.com</a>"
-                
-                /* 
+
+                /*
                   "m\u00FAsica",
-                
+
                    //"<br>"+
                     "<a href='http://www.soundcloud.com/pesinasiller' target='_blank'>francisco y madero</a><br>"+
                     //"<br>"+
@@ -64,11 +64,11 @@
                     //"<br>"+
                     "<a href='http://www.soundcloud.com/pesinasiller' target='_blank'>soundcloud</a><br>"
                        */
-                    
-                  ];    
-  
 
-                        
+                  ];
+
+
+
         var palabrasCont = 0;
 
         var xspacing = 8; // How far apart should each horizontal location be spaced
@@ -91,8 +91,8 @@
 
         var color1, color2;
         var song;
-        
-        
+
+
         function preload() {
           song = loadSound('modem.wav');
         }
@@ -127,7 +127,7 @@
             var speed = map(mouseY, 0.1, height, 0, 2);
             speed = constrain(speed,0.15,10);
             song.rate(1/speed);
-          
+
             background(255);
 
             dy = (TWO_PI / mouseX) * xspacing;
@@ -184,17 +184,17 @@
 
             // $('#texto').html(palabras[Math.floor((Math.random() * palabras.length))]);
             if ($('#texto a:hover').length == 0) {
-    
+
                 $('#texto').html(palabras[palabrasCont]);
                 palabrasCont++;
                 palabrasCont = palabrasCont % palabras.length;
-        
+
              }
-            
+
             song.play();
 
         }
-        
+
         function mouseReleased() {
           song.stop();
           return false;
@@ -225,20 +225,20 @@
             }
         }
     </script>
-    
+
     <style type="text/css">
         a{
             text-decoration:none;
             color:#000;
             cursor:pointer;
         }
-        
+
         a:visited{
              color:#555;
         }
-        
+
         body{
-            font-family: Helvetica Neue,Helvetica,Arial,sans-serif; 
+            font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
             margin:0;
         }
 
@@ -252,51 +252,58 @@
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
-           
-            
+
+
         }
-        
+
         #container{
             position: relative;
             width:100%;
             height:100%;
-    
+
         }
-        
+
         #canvas{
             width: 640px;
             height: 360px;
         }
-        
+
         .center{
             overflow: auto;
             margin: auto;
             position: absolute;
-            top: 0; 
-            left: 0; 
-            bottom: 0; 
+            top: 0;
+            left: 0;
+            bottom: 0;
             right: 0;
         }
-        
+
         #table-container{
             display: table;
             width:100%;
             height:100%
         }
-        
+
         #texto-container{
             height:100px;
             width:230px;
+        }
+        .no-drag{
+          -webkit-user-drag:none;
+          -khtml-user-drag:none;
+          -moz-user-drag:none;
+          -o-user-drag:none;
+          user-drag:none;
         }
     </style>
 </head>
 
 <body>
     <div id="container">
-        <div id="canvas" class="center"></div>
-        <div id="texto-container" class="center">
-            <div id="table-container">
-                <div id="texto"></div>
+        <div id="canvas" class="center no-drag"></div>
+        <div id="texto-container" class="center no-drag">
+            <div id="table-container" class="no-drag">
+                <div id="texto" class="no-drag"></div>
             </div>
         </div>
     </div>
