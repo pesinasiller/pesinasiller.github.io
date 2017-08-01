@@ -6,66 +6,36 @@
     <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.4/p5.js"></script>
     <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.4/addons/p5.sound.min.js"></script>
     <script>
+        /**********************************************
+                                        .  .
+            ,-. ,-. ,-. . ,-. ,-. ,-. . |  |  ,-. ,-.
+            | | |-' `-. | | | ,-| `-. | |  |  |-' |
+            |-' `-' `-' ' ' ' `-^ `-' ' `' `' `-' '
+            |
+            '
+             **********************************************/
 
 
-     /**********************************************
-                                .  .
-    ,-. ,-. ,-. . ,-. ,-. ,-. . |  |  ,-. ,-.
-    | | |-' `-. | | | ,-| `-. | |  |  |-' |
-    |-' `-' `-' ' ' ' `-^ `-' ' `' `' `-' '
-    |
-    '
-     **********************************************/
+        var palabras = ["Carlos Pesina Siller",
+            "front-end developer",
+            "html / css / js / php ",
+            "jquery / bootstrap / wordpress",
 
-       function detectmob() {
-         if( navigator.userAgent.match(/Android/i)
-         || navigator.userAgent.match(/webOS/i)
-         || navigator.userAgent.match(/iPhone/i)
-         || navigator.userAgent.match(/iPad/i)
-         || navigator.userAgent.match(/iPod/i)
-         || navigator.userAgent.match(/BlackBerry/i)
-         || navigator.userAgent.match(/Windows Phone/i)
-         ){
-            return true;
-          }
-         else {
-            return false;
-          }
-        }
+            "<a href='http://www.vrtical.mx/' target='_blank'>www.vrtical.mx</a><br>" +
+            
+            "<a href='http://www.memela.mx/' target='_blank'>www.memela.mx</a><br>" +
 
-    if (detectmob()) {
-        window.location = "m.html";
+            "<a href='http://www.woodpecker.com.mx/' target='_blank'>www.woodpecker.com.mx</a><br>" +
 
-     }
+            "<a href='http://www.reyamargo.com/' target='_blank'>www.reyamargo.com</a><br>" +
 
-  var palabras = [  "Carlos Pesina Siller",
-                  "front-end developer",
-                  "html / css / js / php ",
-                  "jquery / bootstrap / wordpress",
-                "<a href='http://www.vrtical.mx/' target='_blank'>www.vrtical.mx</a><br>"+
-                //"<br>"+
-                  "<a href='http://www.woodpecker.com.mx/' target='_blank'>www.woodpecker.com.mx</a><br>"+
-                 // "<br>"+
-                  "<a href='http://www.reyamargo.com/' target='_blank'>www.reyamargo.com</a><br>"+
-                //  "<br>"+
-                "<a href='http://www.monotypo.com/' target='_blank'>www.monotypo.com</a><br>"+
-                  //"<br>"+
-                  "<a href='http://www.goldjet.mx/' target='_blank'>www.goldjet.mx</a><br>",
+            "<a href='http://www.monotypo.com/' target='_blank'>www.monotypo.com</a><br>" +
 
-                  "<a href='mailto:carlospesina@gmail.com' target='_blank'>carlospesina@gmail.com</a>"
+            "<a href='http://www.goldjet.mx/' target='_blank'>www.goldjet.mx</a><br>",
 
-                /*
-                  "m\u00FAsica",
+            "<a href='mailto:carlospesina@gmail.com' target='_blank'>carlospesina@gmail.com</a>"
 
-                   //"<br>"+
-                    "<a href='http://www.soundcloud.com/pesinasiller' target='_blank'>francisco y madero</a><br>"+
-                    //"<br>"+
-                    "<a href='https://micropapitas.bandcamp.com/' target='_blank'>micropapitas</a><br>"+
-                    //"<br>"+
-                    "<a href='http://www.soundcloud.com/pesinasiller' target='_blank'>soundcloud</a><br>"
-                       */
-
-                  ];
+        ];
 
 
 
@@ -94,7 +64,7 @@
 
 
         function preload() {
-          song = loadSound('modem.wav');
+            song = loadSound('modem.wav');
         }
 
 
@@ -125,8 +95,8 @@
         function draw() {
 
             var speed = map(mouseY, 0.1, height, 0, 2);
-            speed = constrain(speed,0.15,10);
-            song.rate(1/speed);
+            speed = constrain(speed, 0.15, 10);
+            song.rate(1 / speed);
 
             background(255);
 
@@ -150,21 +120,17 @@
 
                     stroke(0, 140, r);
                     line((width / 2 - yvalues2[yvalues2.length - x - 1] * .5 - y2) + r - 150,
-                     x * xspacing,
-                     (yvalues[yvalues.length - x - 1] * .2 + y1) + r - 150,
-                      x * xspacing);
+                        x * xspacing,
+                        (yvalues[yvalues.length - x - 1] * .2 + y1) + r - 150,
+                        x * xspacing);
 
                     stroke(color1);
-                    line(r + yvalues[yvalues.length - x - 1],
-                       -50 + x * xspacing + 7,
-                        r + yvalues[yvalues.length - x - 1] + (y2 * .3),
-                         -50 + x * xspacing + 7);
+                    line(r + yvalues[yvalues.length - x - 1], -50 + x * xspacing + 7,
+                        r + yvalues[yvalues.length - x - 1] + (y2 * .3), -50 + x * xspacing + 7);
 
                     stroke(color2);
-                    line(r + yvalues2[yvalues2.length - x - 1] - y2,
-                       -50 + x * xspacing,
-                       r + yvalues2[yvalues2.length - x - 1] + (y2 * .3) - y2,
-                        -50 + x * xspacing);
+                    line(r + yvalues2[yvalues2.length - x - 1] - y2, -50 + x * xspacing,
+                        r + yvalues2[yvalues2.length - x - 1] + (y2 * .3) - y2, -50 + x * xspacing);
                 }
             }
 
@@ -189,15 +155,15 @@
                 palabrasCont++;
                 palabrasCont = palabrasCont % palabras.length;
 
-             }
+            }
 
             song.play();
 
         }
 
         function mouseReleased() {
-          song.stop();
-          return false;
+            song.stop();
+            return false;
         }
 
 
@@ -227,48 +193,45 @@
     </script>
 
     <style type="text/css">
-        a{
-            text-decoration:none;
-            color:#000;
-            cursor:pointer;
+        a {
+            text-decoration: none;
+            color: #000;
+            cursor: pointer;
         }
-
-        a:visited{
-             color:#555;
+        
+        a:visited {
+            color: #555;
         }
-
-        body{
-            font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
-            margin:0;
+        
+        body {
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            margin: 0;
         }
-
-        #texto{
+        
+        #texto {
             display: table-cell;
             vertical-align: middle;
-            text-align:center;
+            text-align: center;
             -webkit-touch-callout: none;
             -webkit-user-select: none;
             -khtml-user-select: none;
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
-
-
         }
-
-        #container{
+        
+        #container {
             position: relative;
-            width:100%;
-            height:100%;
-
+            width: 100%;
+            height: 100%;
         }
-
-        #canvas{
+        
+        #canvas {
             width: 640px;
             height: 360px;
         }
-
-        .center{
+        
+        .center {
             overflow: auto;
             margin: auto;
             position: absolute;
@@ -277,23 +240,24 @@
             bottom: 0;
             right: 0;
         }
-
-        #table-container{
+        
+        #table-container {
             display: table;
-            width:100%;
-            height:100%
+            width: 100%;
+            height: 100%
         }
-
-        #texto-container{
-            height:100px;
-            width:230px;
+        
+        #texto-container {
+            height: 100px;
+            width: 230px;
         }
-        .no-drag{
-          -webkit-user-drag:none;
-          -khtml-user-drag:none;
-          -moz-user-drag:none;
-          -o-user-drag:none;
-          user-drag:none;
+        
+        .no-drag {
+            -webkit-user-drag: none;
+            -khtml-user-drag: none;
+            -moz-user-drag: none;
+            -o-user-drag: none;
+            user-drag: none;
         }
     </style>
 </head>
@@ -309,4 +273,5 @@
     </div>
 
 </body>
+
 </html>
