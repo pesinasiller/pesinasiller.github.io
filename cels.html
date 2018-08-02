@@ -4,16 +4,15 @@
     <title>pesinasiller</title>
     <script language="javascript" type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.4/p5.js"></script>
-    <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.4/addons/p5.sound.min.js"></script>
     <script>
         /**********************************************
-                                        .  .
-            ,-. ,-. ,-. . ,-. ,-. ,-. . |  |  ,-. ,-.
-            | | |-' `-. | | | ,-| `-. | |  |  |-' |
-            |-' `-' `-' ' ' ' `-^ `-' ' `' `' `-' '
-            |
-            '
-             **********************************************/
+                                                .  .
+                    ,-. ,-. ,-. . ,-. ,-. ,-. . |  |  ,-. ,-.
+                    | | |-' `-. | | | ,-| `-. | |  |  |-' |
+                    |-' `-' `-' ' ' ' `-^ `-' ' `' `' `-' '
+                    |
+                    '
+        **********************************************/
        function detectmob() { 
          if( navigator.userAgent.match(/Android/i)
          || navigator.userAgent.match(/webOS/i)
@@ -30,9 +29,10 @@
           }
         }
      
-        if (detectmob()) {
-            window.location = "cels.html";
-         }
+     
+          if (!detectmob()) {
+            window.location = "index.html";
+          }
 
         var palabras = ["Carlos Pesina Siller",
             "front-end developer",
@@ -59,7 +59,7 @@
 
         var palabrasCont = 0;
 
-        var xspacing = 8; // How far apart should each horizontal location be spaced
+        var xspacing = 20; // How far apart should each horizontal location be spaced
         var w; // Width of entire wave
 
         var theta = 0.0; // Start angle at 0
@@ -78,22 +78,21 @@
         var scalar = 70;
 
         var color1, color2;
-        var song;
 
 
-        function preload() {
-            song = loadSound('modem.wav');
+        function windowResized() {
+          
+          resizeCanvas($(window).width(), $(window).height());
         }
-
-
         function setup() {
-            var myCanvas = createCanvas(640, 360);
+            var myCanvas = createCanvas(windowWidth,windowHeight);
             myCanvas.parent('canvas');
-
+        
             $('#texto').html("click");
             color1 = color(255, 204, 0);
             color2 = color(255, 204, 0);
-
+            width= 640
+            height=360
             w = width;
 
             dx = (TWO_PI / period) * xspacing;
@@ -103,18 +102,17 @@
             yvalues2 = new Array(w / xspacing);
 
 
-            reverb = new p5.Reverb();
-            reverb.process(song, 3, 2);
+
 
         }
 
 
 
         function draw() {
-
+          width=$(window).width()
+          height=$(window).height()
             var speed = map(mouseY, 0.1, height, 0, 2);
             speed = constrain(speed, 0.15, 10);
-            song.rate(1 / speed);
 
             background(255);
 
@@ -175,14 +173,10 @@
 
             }
 
-            song.play();
 
         }
 
-        function mouseReleased() {
-            song.stop();
-            return false;
-        }
+
 
 
         function calcWave() {
@@ -216,16 +210,24 @@
             color: #000;
             cursor: pointer;
         }
-        
+
         a:visited {
             color: #555;
         }
         
+        a:hover{
+            font-size: 18px;
+        }
+
         body {
             font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
             margin: 0;
+            padding: 0; 
+  	display: flex;
+    width:100%;
+    height:100%;
         }
-        
+
         #texto {
             display: table-cell;
             vertical-align: middle;
@@ -237,18 +239,16 @@
             -ms-user-select: none;
             user-select: none;
         }
-        
+
         #container {
             position: relative;
             width: 100%;
             height: 100%;
         }
-        
+
         #canvas {
-            width: 640px;
-            height: 360px;
         }
-        
+
         .center {
             overflow: auto;
             margin: auto;
@@ -258,18 +258,18 @@
             bottom: 0;
             right: 0;
         }
-        
+
         #table-container {
             display: table;
             width: 100%;
             height: 100%
         }
-        
+
         #texto-container {
             min-height: 150px;
             width: 230px;
         }
-        
+
         .no-drag {
             -webkit-user-drag: none;
             -khtml-user-drag: none;
@@ -278,17 +278,17 @@
             user-drag: none;
         }
     </style>
+      <meta name="viewport" content="user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1,width=device-width">
+
 </head>
 
 <body>
-    <div id="container">
         <div id="canvas" class="center no-drag"></div>
         <div id="texto-container" class="center no-drag">
             <div id="table-container" class="no-drag">
                 <div id="texto" class="no-drag"></div>
             </div>
         </div>
-    </div>
 
 </body>
 
