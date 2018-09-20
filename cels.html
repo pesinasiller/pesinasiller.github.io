@@ -1,7 +1,9 @@
 <html>
-
 <head>
+    <meta name="viewport" content="user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1,width=device-width">
     <title>pesinasiller</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
     <script language="javascript" type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.4/p5.js"></script>
     <script>
@@ -34,28 +36,45 @@
             window.location = "index.html";
           }
 
-        var palabras = ["Carlos Pesina Siller",
+        var palabras = [
+            "Carlos Pesina Siller",
             "front-end developer",
-            "html / css / js ",
-            "jquery / bootstrap",
+            
+            "<div class='text-left d-inline-block bg-white p-3'>"+
+            "<h1>Dissevelt </h1>" + 
+            "<h2>Node.js + Express + Three.js + Socket.IO </h2>" +
+            "<a href='http://dissevelt.herokuapp.com/' target='_blank'>dissevelt.herokuapp.com</a><br>"+
+            "</div>",
+            
+            "<div class='text-left d-inline-block bg-white p-3'>"+
+            "<h1>Hexaedros </h1>" + 
+            "<h2>React + Three.js + Tone.js </h2>" +
+            "<a href='https://pesinasiller.github.io/hexaedros/' target='_blank'>pesinasiller.github.io/hexaedros</a><br>"+
+            "</div>",
 
+            "<div class='text-left d-inline-block bg-white p-3'>"+
+            "<h1>Moir&eacute; </h1>" + 
+            "<h2>P5.js </h2>" +
+            "<a href='https://pesinasiller.github.io/Moire/' target='_blank'>pesinasiller.github.io/Moire</a><br>"+
+            "</div>",            
             
-            "<a href='http://dissevelt.herokuapp.com/' target='_blank'>dissevelt.herokuapp.com</a><br>" +
-            
+            "<div class='text-left d-inline-block bg-white p-3'>"+
+            "<h2>Wordpress + Bootstrap + JQuery</h2>" +
             "<a href='http://www.vrtical.mx/' target='_blank'>www.vrtical.mx</a><br>" +
-
             "<a href='http://www.memela.mx/' target='_blank'>www.memela.mx</a><br>" +
+            "</div>",       
+            
 
-            "<a href='http://www.reyamargo.com/' target='_blank'>www.reyamargo.com</a><br>" +
-
-            "<a href='http://latinapro.info/' target='_blank'>latinapro.info</a><br>",
+            "<div class='text-left d-inline-block bg-white p-3'>"+
+            "<h2>HTML + Bootstrap + P5.js</h2>" +
+            "<a href='https://pesinasiller.github.io/franciscoymadero/' target='_blank'>pesinasiller.github.io/franciscoymadero</a><br>" +
+            "</div>",              
+            
 
             "<a href='mailto:carlospesina@gmail.com' target='_blank'>carlospesina@gmail.com</a>",
             
             ""
         ];
-
-
 
         var palabrasCont = 0;
 
@@ -79,7 +98,6 @@
 
         var color1, color2;
 
-
         function windowResized() {
           
           resizeCanvas($(window).width(), $(window).height());
@@ -88,7 +106,7 @@
             var myCanvas = createCanvas(windowWidth,windowHeight);
             myCanvas.parent('canvas');
         
-            $('#texto').html("click");
+            $('#texto').html("tap");
             color1 = color(255, 204, 0);
             color2 = color(255, 204, 0);
             width= 640
@@ -100,13 +118,7 @@
 
             yvalues = new Array(w / xspacing);
             yvalues2 = new Array(w / xspacing);
-
-
-
-
         }
-
-
 
         function draw() {
           width=$(window).width()
@@ -157,7 +169,6 @@
 
         }
 
-
         function mousePressed() {
             color1 = color(random(0, 255), 204, 0);
             color2 = color(155, random(0, 255), 0);
@@ -171,7 +182,6 @@
 
             }
         }
-
 
         function calcWave() {
             // Increment theta (try different values for 'angular velocity' here
@@ -197,85 +207,8 @@
             }
         }
     </script>
-
-    <style type="text/css">
-        a {
-            text-decoration: none;
-            color: #000;
-            cursor: pointer;
-        }
-
-        a:visited {
-            color: #555;
-        }
-        
-        a:hover{
-            font-size: 18px;
-        }
-
-        body {
-            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-            margin: 0;
-            padding: 0; 
-  	display: flex;
-    width:100%;
-    height:100%;
-        }
-
-        #texto {
-            display: table-cell;
-            vertical-align: middle;
-            text-align: center;
-            -webkit-touch-callout: none;
-            -webkit-user-select: none;
-            -khtml-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-
-        #container {
-            position: relative;
-            width: 100%;
-            height: 100%;
-        }
-
-        #canvas {
-        }
-
-        .center {
-            overflow: auto;
-            margin: auto;
-            position: absolute;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            right: 0;
-        }
-
-        #table-container {
-            display: table;
-            width: 100%;
-            height: 100%
-        }
-
-        #texto-container {
-            min-height: 150px;
-            width: 230px;
-        }
-
-        .no-drag {
-            -webkit-user-drag: none;
-            -khtml-user-drag: none;
-            -moz-user-drag: none;
-            -o-user-drag: none;
-            user-drag: none;
-        }
-    </style>
-      <meta name="viewport" content="user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1,width=device-width">
-
+    
 </head>
-
 <body>
         <div id="canvas" class="center no-drag"></div>
         <div id="texto-container" class="center no-drag">
@@ -283,7 +216,5 @@
                 <div id="texto" class="no-drag"></div>
             </div>
         </div>
-
 </body>
-
 </html>
