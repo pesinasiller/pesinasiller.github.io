@@ -100,10 +100,13 @@
 
         var color1, color2;
         var song;
+        var reverb;
 
 
         function preload() {
-            song = loadSound('modem.wav');
+            song = loadSound('modem.mp3');
+            reverb = new p5.Reverb();
+            reverb.process(song, 3, 2);
         }
 
 
@@ -124,8 +127,7 @@
             yvalues2 = new Array(w / xspacing);
 
 
-            reverb = new p5.Reverb();
-            reverb.process(song, 3, 2);
+            
 
         }
 
