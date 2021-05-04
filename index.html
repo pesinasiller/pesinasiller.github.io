@@ -10,6 +10,12 @@
     <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.4/addons/p5.sound.min.js"></script>
     
     <script>
+        console.log('%c /* \n‍👨🏽‍💻 https://pesinasiller.github.io\n */',
+        'font-size: 15px; color: coral;');
+        /*
+        WARNING:
+        this code is super old  ¯\_(ツ)_/¯
+        */
         /**********************************************
                                         .  .
             ,-. ,-. ,-. . ,-. ,-. ,-. . |  |  ,-. ,-.
@@ -17,7 +23,7 @@
             |-' `-' `-' ' ' ' `-^ `-' ' `' `' `-' '
             |
             '
-             **********************************************/
+        **********************************************/
        function detectmob() { 
          if( navigator.userAgent.match(/Android/i)
          || navigator.userAgent.match(/webOS/i)
@@ -40,22 +46,36 @@
 
         var palabras = [
             "Carlos Pesina Siller",
-            "front-end developer",
-            
+            "Web developer",
+
+            "<div class='text-left d-inline-block bg-white p-4'>"+
+            "<h1>oxxxo.club </h1>" + 
+            "<h2>Three.js + React.js + Node.js + Socket.IO + Firebase </h2>" +
+            "<h3>A virtual 3D music club <br /> I participated in the research, design and development.</h3>" +
+            "<a href='https://www.oxxxo.club/fonima' target='_blank'>www.oxxxo.club</a><br>"+
+            "</div>",
+
+            "<div class='text-left d-inline-block bg-white p-4'>"+
+            "<h1>Matazanos @ oxxxo.club </h1>" + 
+            "<h2>Three.js + React.js + Node.js + Socket.IO + Firebase </h2>" +
+            "<h3>An illustration virtual exhibition in collaboration with mexican Matazanos collective</h3>" +
+            "<a href='https://matazanos.herokuapp.com/' target='_blank'>https://matazanos.herokuapp.com</a><br>"+
+            "</div>",
+
             "<div class='text-left d-inline-block bg-white p-4'>"+
             "<h1>Carabanchel Creativa </h1>" + 
             "<h2>React.js + Redux + Firebase + Mapbox API </h2>" +
             "<h3>A cultural map of one of the most creative neighborhoods in Madrid. <br /> I participated in the research, design and development.</h3>" +
             "<a href='https://carabanchel-creativa-c3a62.firebaseapp.com' target='_blank'>carabanchelcreativa.com</a><br>"+
             "</div>",
-            
+
             "<div class='text-left d-inline-block bg-white p-4'>"+
             "<h1>Dissevelt </h1>" + 
             "<h2>Node.js + Express + Three.js + Socket.IO </h2>" +
             "<h3>Prototype of a web app that allows the audience to interact with the music <br/> in a live performance, allowing them to make sounds or modify visuals.</h3>" +
             "<a href='http://dissevelt.herokuapp.com/' target='_blank'>dissevelt.herokuapp.com</a><br>"+
             "</div>",
-            
+
             "<div class='text-left d-inline-block bg-white p-4'>"+
             "<h1>Hexaedros </h1>" + 
             "<h2>React + Three.js + Tone.js </h2>" +
@@ -69,21 +89,19 @@
             "<h3>Moiré slit animation generator.</h3>" +
             "<a href='https://pesinasiller.github.io/Moire/' target='_blank'>pesinasiller.github.io/Moire</a><br>"+
             "</div>",            
-            
+
             "<div class='text-left d-inline-block bg-white p-4'>"+
             "<h2>Wordpress + Bootstrap + JQuery</h2>" +
             "<h3>Wordpress themes made from scratch</h3>" +
             "<a href='http://www.vrtical.mx/' target='_blank'>www.vrtical.mx</a><br>" +
             "<a href='http://www.memela.mx/' target='_blank'>www.memela.mx</a><br>" +
-            "</div>",       
-            
+            "</div>",
 
             "<div class='text-left d-inline-block bg-white p-4'>"+
             "<h2>HTML + Bootstrap + p5.js</h2>" +
             "<h3>Static website with p5.js interaction</h3>" +
             "<a href='https://pesinasiller.github.io/franciscoymadero/' target='_blank'>pesinasiller.github.io/franciscoymadero</a><br>" +
-            "</div>",              
-            
+            "</div>",
 
             "<a href='mailto:carlospesina@gmail.com' target='_blank'>carlospesina@gmail.com</a>",
             
@@ -114,13 +132,11 @@
         var song;
         var reverb;
 
-
         function preload() {
             song = loadSound('modem.mp3');
             reverb = new p5.Reverb();
             reverb.process(song, 3, 2);
         }
-
 
         function setup() {
             var myCanvas = createCanvas(640, 360);
@@ -138,12 +154,7 @@
             yvalues = new Array(w / xspacing);
             yvalues2 = new Array(w / xspacing);
 
-
-            
-
         }
-
-
 
         function draw() {
 
@@ -166,7 +177,6 @@
             x2 = width / 2 + (scalar * cos(ang2));
             y1 = height / 2 + (scalar * sin(ang1));
             y2 = height / 2 + (scalar * sin(ang2));
-
 
             for (r = -100; r < width * 2; r += 100) {
                 for (x = 1; x < yvalues.length; x++) {
@@ -192,14 +202,9 @@
 
         }
 
-
-
-
         function mousePressed() {
             color1 = color(random(0, 255), 204, 0);
             color2 = color(155, random(0, 255), 0);
-
-            // $('#texto').html(palabras[Math.floor((Math.random() * palabras.length))]);
             if ($('#texto a:hover').length == 0) {
 
                 $('#texto').html(palabras[palabrasCont]);
@@ -207,9 +212,7 @@
                 palabrasCont = palabrasCont % palabras.length;
 
             }
-
             song.play();
-
         }
 
         function mouseReleased() {
@@ -221,7 +224,6 @@
         function calcWave() {
             // Increment theta (try different values for 'angular velocity' here
             theta += 0.10;
-
             // For every x value, calculate a y value with sine function
             var x = theta;
             for (i = 0; i < yvalues.length; i++) {
@@ -243,7 +245,6 @@
         }
     </script>
 </head>
-
 <body>
     <div id="container" class="desktop">
         <div id="canvas" class="desktop center no-drag"></div>
@@ -253,7 +254,5 @@
             </div>
         </div>
     </div>
-
 </body>
-
 </html>
