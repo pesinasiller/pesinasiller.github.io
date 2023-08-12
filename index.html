@@ -5,240 +5,25 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-    <script language="javascript" type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.4/p5.js"></script>
     <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.4/addons/p5.sound.min.js"></script>
-    
-    <script>
-        console.log('%c /* \n‍👨🏽‍💻 https://pesinasiller.github.io\n */',
-        'font-size: 15px; color: coral;');
-        /*
-        WARNING:
-        this code is super old 
-        */
-
-       function detectmob() { 
-         if( navigator.userAgent.match(/Android/i)
-         || navigator.userAgent.match(/webOS/i)
-         || navigator.userAgent.match(/iPhone/i)
-         || navigator.userAgent.match(/iPad/i)
-         || navigator.userAgent.match(/iPod/i)
-         || navigator.userAgent.match(/BlackBerry/i)
-         || navigator.userAgent.match(/Windows Phone/i)
-         ){
-            return true;
-          }
-         else {
-            return false;
-          }
-        }
-     
-        if (detectmob()) {
-            window.location = "cels.html";
-         }
-
-        var palabras = [
-            "Carlos Pesina Siller",
-            "Web developer",
-
-            "<div class='text-left d-inline-block bg-white p-4'>" +
-            "<h1>oxxxo.club </h1>" +
-            "<h2>Three.js + React.js + Node.js + Socket.IO + Firebase </h2>" +
-            "<h3>A virtual 3D music club <br /> I participated in the research, design and development.</h3>" +
-            "<a href='https://www.oxxxo.club/fonima' target='_blank'>www.oxxxo.club</a><br>" +
-            "</div>",
-
-            "<div class='text-left d-inline-block bg-white p-4'>" +
-            "<h1>Matazanos @ oxxxo.club </h1>" +
-            "<h2>Three.js + React.js + Node.js + Socket.IO + Firebase </h2>" +
-            "<h3>An illustration virtual exhibition <br /> in collaboration with mexican collective Matazanos</h3>" +
-            "<a href='https://matazanos.herokuapp.com/' target='_blank'>https://matazanos.herokuapp.com</a><br>" +
-            "</div>",
-
-            "<div class='text-left d-inline-block bg-white p-4'>"+
-            "<h1>Análisis sintáctico ascendente</h1>" +
-            "<h3>Small programming language to generate music sequences</h3>" +
-            "<a href='https://pesinasiller.github.io/analizador-sintactico-LR-musical/' target='_blank'>https://pesinasiller.github.io/analizador-sintactico-LR-musical/</a><br>" +
-            "</div>",
-
-            "<div class='text-left d-inline-block bg-white p-4'>"+
-            "<h1>Carabanchel Creativa </h1>" + 
-            "<h2>React.js + Redux + Firebase + Mapbox API </h2>" +
-            "<h3>A cultural map of one of the most creative neighborhoods in Madrid. <br /> I participated in the research, design and development.</h3>" +
-            "<a href='https://carabanchelcreativa.com' target='_blank'>carabanchelcreativa.com</a><br>"+
-            "</div>",
-
-            "<div class='text-left d-inline-block bg-white p-4'>"+
-            "<h1>Dissevelt </h1>" + 
-            "<h2>Node.js + Express + Three.js + Socket.IO </h2>" +
-            "<h3>Prototype of a web app that allows the audience to interact with the music <br/> in a live performance, allowing them to make sounds or modify visuals.</h3>" +
-            "<a href='http://dissevelt.herokuapp.com/' target='_blank'>dissevelt.herokuapp.com</a><br>"+
-            "</div>",
-
-            "<div class='text-left d-inline-block bg-white p-4'>"+
-            "<h1>Hexaedros </h1>" + 
-            "<h2>React + Three.js + Tone.js </h2>" +
-            "<h3>A simple 3D experimental music sequencer.</h3>" +
-            "<a href='https://pesinasiller.github.io/hexaedros/' target='_blank'>pesinasiller.github.io/hexaedros</a><br>"+
-            "</div>",
-
-            "<div class='text-left d-inline-block bg-white p-4'>"+
-            "<h1>Moir&eacute; </h1>" + 
-            "<h2>P5.js </h2>" +
-            "<h3>Moiré slit animation generator.</h3>" +
-            "<a href='https://pesinasiller.github.io/Moire/' target='_blank'>pesinasiller.github.io/Moire</a><br>"+
-            "</div>",            
-
-            "<a href='mailto:carlospesina@gmail.com' target='_blank'>carlospesina@gmail.com</a>",
-            
-            ""
-        ];
-
-        var palabrasCont = 0;
-
-        var xspacing = 8; // How far apart should each horizontal location be spaced
-        var w; // Width of entire wave
-
-        var theta = 0.0; // Start angle at 0
-        var theta2 = 0.0;
-        var amplitude = 15.0; // Height of wave
-        var period = 200.0; // How many pixels before the wave repeats
-        var period2 = -80.0; // How many pixels before the wave repeats
-        var dx; // Value for incrementing X, a function of period and xspacing
-        var dy; // Value for incrementing X, a function of period and xspacing
-        var yvalues = []; // Using an array to store height values for the wave
-        var yvalues2 = [];
-
-        var x1, x2, y1, y2;
-        var angle1 = 0;
-        var angle2 = 0;
-        var scalar = 70;
-
-        var color1, color2;
-        var song;
-        var reverb;
-
-        function preload() {
-            song = loadSound('modem.mp3');
-            reverb = new p5.Reverb();
-            reverb.process(song, 3, 2);
-        }
-
-        function setup() {
-            var myCanvas = createCanvas(640, 360);
-            myCanvas.parent('canvas');
-
-            $('#texto').html("click");
-            color1 = color(255, 204, 0);
-            color2 = color(255, 204, 0);
-
-            w = width;
-
-            dx = (TWO_PI / period) * xspacing;
-            dy = (TWO_PI / period2) * xspacing;
-
-            yvalues = new Array(w / xspacing);
-            yvalues2 = new Array(w / xspacing);
-
-        }
-
-        function draw() {
-
-            var speed = map(mouseY, 0.1, height, 0, 2);
-            speed = constrain(speed, 0.15, 10);
-            song.rate(1 / speed);
-
-            background(255);
-
-            dy = (TWO_PI / mouseX) * xspacing;
-            dx = (TWO_PI / mouseY) * xspacing;
-
-            calcWave();
-            calcWave2();
-
-            var ang1 = radians(angle1);
-            var ang2 = radians(angle2);
-
-            x1 = width / 2 + (scalar * cos(ang1));
-            x2 = width / 2 + (scalar * cos(ang2));
-            y1 = height / 2 + (scalar * sin(ang1));
-            y2 = height / 2 + (scalar * sin(ang2));
-
-            for (r = -100; r < width * 2; r += 100) {
-                for (x = 1; x < yvalues.length; x++) {
-
-                    stroke(0, 140, r);
-                    line((width / 2 - yvalues2[yvalues2.length - x - 1] * .5 - y2) + r - 150,
-                        x * xspacing,
-                        (yvalues[yvalues.length - x - 1] * .2 + y1) + r - 150,
-                        x * xspacing);
-
-                    stroke(color1);
-                    line(r + yvalues[yvalues.length - x - 1], -50 + x * xspacing + 7,
-                        r + yvalues[yvalues.length - x - 1] + (y2 * .3), -50 + x * xspacing + 7);
-
-                    stroke(color2);
-                    line(r + yvalues2[yvalues2.length - x - 1] - y2, -50 + x * xspacing,
-                        r + yvalues2[yvalues2.length - x - 1] + (y2 * .3) - y2, -50 + x * xspacing);
-                }
-            }
-
-            angle1 += 2;
-            angle2 += 3;
-
-        }
-
-        function mousePressed() {
-            color1 = color(random(0, 255), 204, 0);
-            color2 = color(155, random(0, 255), 0);
-            if ($('#texto a:hover').length == 0) {
-
-                $('#texto').html(palabras[palabrasCont]);
-                palabrasCont++;
-                palabrasCont = palabrasCont % palabras.length;
-
-            }
-            song.play();
-        }
-
-        function mouseReleased() {
-            song.stop();
-            return false;
-        }
-
-
-        function calcWave() {
-            // Increment theta (try different values for 'angular velocity' here
-            theta += 0.10;
-            // For every x value, calculate a y value with sine function
-            var x = theta;
-            for (i = 0; i < yvalues.length; i++) {
-                yvalues[i] = sin(x) * amplitude;
-                x += dx;
-            }
-        }
-
-        function calcWave2() {
-            // Increment theta (try different values for 'angular velocity' here
-            theta2 += 0.20;
-
-            // For every x value, calculate a y value with sine function
-            var x = theta2;
-            for (i = 0; i < yvalues2.length; i++) {
-                yvalues2[i] = cos(x) * amplitude;
-                x += dy;
-            }
-        }
-    </script>
+   
 </head>
 <body>
     <div id="container" class="desktop">
         <div id="canvas" class="desktop center no-drag"></div>
+        <div id="boton-siguiente-container">
+            <h1 id="boton-siguiente">→</h1>
+        </div>
+        
         <div id="texto-container" class="center no-drag">
             <div id="table-container" class="no-drag">
-                <div id="texto" class="no-drag"></div>
+                <div id="texto" class="no-drag">Carlos Pesina Siller</div>
             </div>
+            <h1>&rarr;</h1>
         </div>
     </div>
+    <script src="textos.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

@@ -86,3 +86,26 @@ h3{
     -o-user-drag: none;
     user-drag: none;
 }
+
+#boton-siguiente-container {
+    cursor: pointer;
+    width: 640px;
+    height: 360px;
+    overflow: auto;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    text-align: right;
+    padding: 50px;
+}
+
+#boton-siguiente {
+    z-index: 100;
+    position: relative;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
