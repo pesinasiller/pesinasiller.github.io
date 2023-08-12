@@ -157,8 +157,12 @@ function calcWave2() {
   }
 }
 var indice = 0;
-document.getElementById('boton-siguiente').addEventListener('pointerdown', () => {
-  document.getElementById('texto').innerHTML = textos[indice];
-  indice++;
-  indice = indice % textos.length;
-});
+
+const siguienteTexto = () => {
+    document.getElementById('texto').innerHTML = textos[indice];
+    indice++;
+    indice = indice % textos.length;
+};
+
+document.getElementById('boton-siguiente').addEventListener('click', siguienteTexto);
+document.getElementById('boton-siguiente').addEventListener('touchstart', siguienteTexto);
