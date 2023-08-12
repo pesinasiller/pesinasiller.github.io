@@ -53,6 +53,7 @@ function preload() {
     reverb.process(song, 3, 2);
 }
 
+
 function setup() {
   var myCanvas = createCanvas(640, 360);
   myCanvas.parent('canvas');
@@ -156,7 +157,7 @@ function calcWave2() {
   }
 }
 var indice = 0;
-document.getElementById('boton-siguiente').addEventListener('click', () => {
+document.getElementById('boton-siguiente').addEventListener('pointerdown', () => {
   document.getElementById('texto').innerHTML = textos[indice];
   indice++;
   indice = indice % textos.length;
