@@ -41,7 +41,10 @@ function setup() {
   yvalues = new Array(w / xspacing);
   yvalues2 = new Array(w / xspacing);
 }
-
+function preload(){
+  song = loadSound("modem.mp3");
+  console.log(song);
+}
 function draw() {
   var speed = map(mouseY, 0.1, height, 0, 2);
   speed = constrain(speed, 0.15, 10);
@@ -98,7 +101,6 @@ function draw() {
 function mousePressed() {
   color1 = color(random(0, 255), 204, 0);
   color2 = color(155, random(0, 255), 0);
-  song = loadSound("modem.mp3");
   reverb = new p5.Reverb();
   reverb.process(song, 3, 2);
   song.play();
