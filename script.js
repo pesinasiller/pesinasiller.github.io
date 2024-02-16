@@ -43,8 +43,8 @@ function setup() {
 }
 function preload(){
   song = loadSound("modem.mp3");
-  console.log(song);
 }
+
 function draw() {
   var speed = map(mouseY, 0.1, height, 0, 2);
   speed = constrain(speed, 0.15, 10);
