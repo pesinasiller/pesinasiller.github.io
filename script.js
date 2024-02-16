@@ -1,28 +1,7 @@
-console.log('%c /* \n https://pesinasiller.github.io\n */', 'font-size: 15px; color: coral;');
-/*
-WARNING: this code is super old
-*/
-/*
-function detectmob() {
- if( navigator.userAgent.match(/Android/i)
- || navigator.userAgent.match(/webOS/i)
- || navigator.userAgent.match(/iPhone/i)
- || navigator.userAgent.match(/iPad/i)
- || navigator.userAgent.match(/iPod/i)
- || navigator.userAgent.match(/BlackBerry/i)
- || navigator.userAgent.match(/Windows Phone/i)
- ){
-    return true;
-  }
- else {
-    return false;
-  }
-}
-
-if (detectmob()) {
-    window.location = "cels.html";
- }
-*/
+console.log(
+  "%c /* \n https://pesinasiller.github.io\n */",
+  "font-size: 15px; color: coral;",
+);
 
 
 var xspacing = 8; // How far apart should each horizontal location be spaced
@@ -47,16 +26,9 @@ var color1, color2;
 var song;
 var reverb;
 
-function preload() {
-    song = loadSound('modem.mp3');
-    reverb = new p5.Reverb();
-    reverb.process(song, 3, 2);
-}
-
-
 function setup() {
   var myCanvas = createCanvas(640, 360);
-  myCanvas.parent('canvas');
+  myCanvas.parent("canvas");
 
   color1 = color(255, 204, 0);
   color2 = color(255, 204, 0);
@@ -73,7 +45,7 @@ function setup() {
 function draw() {
   var speed = map(mouseY, 0.1, height, 0, 2);
   speed = constrain(speed, 0.15, 10);
-  song.rate(1 / speed);
+  song?.rate(1 / speed);
 
   background(255);
 
@@ -98,7 +70,7 @@ function draw() {
         width / 2 - yvalues2[yvalues2.length - x - 1] * 0.5 - y2 + r - 150,
         x * xspacing,
         yvalues[yvalues.length - x - 1] * 0.2 + y1 + r - 150,
-        x * xspacing
+        x * xspacing,
       );
 
       stroke(color1);
@@ -106,7 +78,7 @@ function draw() {
         r + yvalues[yvalues.length - x - 1],
         -50 + x * xspacing + 7,
         r + yvalues[yvalues.length - x - 1] + y2 * 0.3,
-        -50 + x * xspacing + 7
+        -50 + x * xspacing + 7,
       );
 
       stroke(color2);
@@ -114,7 +86,7 @@ function draw() {
         r + yvalues2[yvalues2.length - x - 1] - y2,
         -50 + x * xspacing,
         r + yvalues2[yvalues2.length - x - 1] + y2 * 0.3 - y2,
-        -50 + x * xspacing
+        -50 + x * xspacing,
       );
     }
   }
@@ -126,6 +98,9 @@ function draw() {
 function mousePressed() {
   color1 = color(random(0, 255), 204, 0);
   color2 = color(155, random(0, 255), 0);
+  song = loadSound("modem.mp3");
+  reverb = new p5.Reverb();
+  reverb.process(song, 3, 2);
   song.play();
 }
 
@@ -159,10 +134,14 @@ function calcWave2() {
 var indice = 0;
 
 const siguienteTexto = () => {
-    document.getElementById('texto').innerHTML = textos[indice];
-    indice++;
-    indice = indice % textos.length;
+  document.getElementById("texto").innerHTML = textos[indice];
+  indice++;
+  indice = indice % textos.length;
 };
 
-document.getElementById('boton-siguiente').addEventListener('click', siguienteTexto);
-document.getElementById('boton-siguiente').addEventListener('touchstart', siguienteTexto);
+document
+  .getElementById("boton-siguiente")
+  .addEventListener("click", siguienteTexto);
+document
+  .getElementById("boton-siguiente")
+  .addEventListener("touchstart", siguienteTexto);
