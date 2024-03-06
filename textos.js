@@ -46,7 +46,7 @@ var textos = [
   <h1>Dissevelt </h1>
   <h2>Node.js + Express + Three.js + Socket.IO </h2>
   <h3>Prototype of a web app that allows the audience to interact with the music <br/> in a live performance, allowing them to make sounds or modify visuals.</h3>
-  <a href='http://dissevelt.herokuapp.com/' target='_blank'>dissevelt.herokuapp.com</a><br>
+  <a href='https://youtu.be/i7MMrnBY0Y4' target='_blank'>https://youtu.be/i7MMrnBY0Y4</a><br>
   </div>`,
 
   `<div class='text-left d-inline-block bg-white p-4'>
