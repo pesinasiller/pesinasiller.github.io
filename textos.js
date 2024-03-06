@@ -26,7 +26,7 @@ var textos = [
   <h1>Matazanos @ oxxxo.club </h1>
   <h2>Three.js + React.js + Node.js + Socket.IO + Firebase </h2>
   <h3>An illustration virtual exhibition <br /> in collaboration with mexican collective Matazanos</h3>
-  <a href='https://matazanos.herokuapp.com/' target='_blank'>matazanos.herokuapp.com</a><br>
+  <a href='https://oxxxo.club/matazanos' target='_blank'>oxxxo.club/matazanos</a><br>
   </div>`,
 
   `<div class='text-left d-inline-block bg-white p-4'>
