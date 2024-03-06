@@ -7,6 +7,7 @@ var textos = [
     <h3>A virtual 3D music club <br /></h3>
     <a href='https://www.oxxxo.club' target='_blank'>www.oxxxo.club</a><br>
     </div>`,
+
   `<div class='text-left d-inline-block bg-white p-4'>
     <h1>Radigue</h1>
     <h2>JavaScript</h2>
@@ -14,17 +15,24 @@ var textos = [
     <a href='https://pesinasiller.github.io/radigue/' target='_blank'>pesinasiller.github.io/radigue</a><br>
     </div>`,
 
+    `<div class='text-left d-inline-block bg-white p-4'>
+    <h1>RadioNopal.com</h1>
+    <h2>React + Sanity.io</h2>
+    <h3>A website for the Mexico City-based radio station featuring <br /> live streaming, archived shows, and event updates.</h3>
+    <a href='https://www.radionopal.com/' target='_blank'>www.radionopal.com</a><br>
+    </div>`,
+
   `<div class='text-left d-inline-block bg-white p-4'>
   <h1>Matazanos @ oxxxo.club </h1>
   <h2>Three.js + React.js + Node.js + Socket.IO + Firebase </h2>
   <h3>An illustration virtual exhibition <br /> in collaboration with mexican collective Matazanos</h3>
-  <a href='https://matazanos.herokuapp.com/' target='_blank'>https://matazanos.herokuapp.com</a><br>
+  <a href='https://matazanos.herokuapp.com/' target='_blank'>matazanos.herokuapp.com</a><br>
   </div>`,
 
   `<div class='text-left d-inline-block bg-white p-4'>
   <h1>Análisis sintáctico ascendente</h1>
   <h3>Small programming language to generate music sequences</h3>
-  <a href='https://pesinasiller.github.io/analizador-sintactico-LR-musical/' target='_blank'>https://pesinasiller.github.io/analizador-sintactico-LR-musical/</a><br>
+  <a href='https://pesinasiller.github.io/analizador-sintactico-LR-musical/' target='_blank'>pesinasiller.github.io/analizador-sintactico-LR-musical/</a><br>
   </div>`,
 
   `<div class='text-left d-inline-block bg-white p-4'>
