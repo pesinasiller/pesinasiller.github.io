@@ -15,43 +15,84 @@
       html,
       body {
         overflow-x: hidden;
+        height: 100%;
+        margin: 0;
+        padding: 0;
       }
 
       body {
-        background-image: url(img/rayas.gif);
+        animation: gradientBG 6s ease infinite;
+        background: linear-gradient(-25deg, 
+          #0a4d68,  /* deep-teal */
+          #4fc0d0,  /* sky-blue */
+          #b6c4b6,  /* soft-lilac */
+          lightcoral
+        );
+        background-size: 150% 150%;
+        margin: 0;
+        height: 100vh;
+      }
+
+      @keyframes gradientBG {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      .container {
+        background-color: rgba(255, 255, 255, 0.92);
+        border-radius: 8px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        backdrop-filter: blur(2px);
       }
 
       ::selection {
         color: white;
-        background: blue;
+        background: lightcoral;
       }
       .turquoise {
-        color: blue;
+        color: #20b2aa;
       }
       .rosa-deslavado {
-        color: coral;
+        color: #ff6b6b;
       }
       .contact-icons a {
         width: 15%;
+        transition: transform 0.3s ease;
+      }
+      .contact-icons a:hover {
+        transform: scale(1.1);
       }
       .contact-icons a img {
         width: 100%;
         max-width: 110px;
+        filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2));
       }
       .portfolio {
-        color: coral;
+        color: #ff6347;
         text-decoration: none;
+        transition: all 0.3s ease;
       }
       a:visited {
         -webkit-text-stroke: 3px black;
         text-decoration: none;
       }
       .b {
-        font-weight: 500;
+        font-weight: 600;
+        color: #006666;
       }
       @media (max-width: 479px) {
         ul {
           padding: 1rem;
+        }
+        .contact-icons a {
+          width: 22%;
         }
       }
     </style>
@@ -60,18 +101,18 @@
   <body>
     <div class="container ma4 mh7-l ma5-ns">
       <div class="fl w-100 w-100-ns">
-        <div style="background: white; height: 500px; position: relative">
+        <div class="br4 mh4-ns" style="background: white; height: 500px; position: relative">
           <div
-            class="avenir fw6 pa5"
+            class="avenir fw6 pa5 br4"
             style="
               position: absolute;
               color: antiquewhite;
               width: 100%;
               height: 100%;
+              background-color: black;
               display: flex;
               align-items: center;
               justify-content: center;
-              background: coral;
               font-size: 11vh;
               border: 4px solid black;
               -webkit-text-stroke: 3px black;
@@ -88,7 +129,6 @@
             class="avenir pa5-ns pa3 fw6 f1"
             style="
               -webkit-text-stroke: 3px black;
-              -webkit-transform: skewX(20deg);
             "
           >
             <a href="../index.html" class="portfolio">
@@ -104,211 +144,204 @@
           <div class="f3 f1-ns fw6">Work experience</div>
           <ul class="f4 lh-copy">
             <li>
-              <span class="rosa-deslavado"
-                >Software Engineer @ World Resources Institute</span
-              >
-              <span class="rosa-deslavado fw2 f6"
-                >(February 2022 - Present, Remote)</span
-              >
-              <br />
+              <div class="fw6">Software Engineer</div>
               <div class="tj f5">
-                Part of the <span class="b">Global Forest Watch Pro</span> team,
-                where we build an open-access web app to monitor deforestation
-                risk in commodity supply chains using satellite imagery.
-                <br /><span class="b">React.js,</span> using
-                <span class="b">Node.js</span> and <span class="b">MySQL</span>.
+                <span class="b">World Resources Institute</span> · Washington D.C. / Remote · February 2022 – Present
+              </div>
+              <div class="tj f5" style="margin-top: 0.5rem;">
+                Core contributor to <span class="b">Global Forest Watch Pro</span>, an open-access web application for monitoring global deforestation using satellite imagery. Led front-end features with <span class="b">React.js</span> and supported back-end development with <span class="b">Node.js</span> and <span class="b">SQL</span>. Contributed to enhancing the platform's architecture, design, usability and performance, ensuring scalability.
               </div>
               <br /><br />
             </li>
             <li>
-              <span class="rosa-deslavado">Web UI developer @ Globant</span>
-              <span class="rosa-deslavado fw2 f6"
-                >(October 2020 - January 2022, Remote)</span
-              >
-              <br />
+              <div class="fw6">Web UI developer</div>
               <div class="tj f5">
-                Working with an international team, migrating an application
-                from AngularJS to <span class="b">React.js,</span> using
-                <span class="b">Storybook, SASS </span>and
-                <span class="b">React Testing Library</span>.
+                <span class="b">Globant</span> · Remote · October 2020 – January 2022
+              </div>
+              <div class="tj f5" style="margin-top: 0.5rem;">
+                Migrated complex applications from AngularJS to <span class="b">React.js</span>, modernizing legacy systems and improving maintainability. Collaborated with an international team, implementing UI components using <span class="b">Storybook</span>, <span class="b">SASS</span>, and <span class="b">React Testing Library</span> to ensure robust and scalable design systems.
               </div>
               <br /><br />
             </li>
             <li>
-              <span class="rosa-deslavado">Full stack developer @ PayJoy</span>
-              <span class="rosa-deslavado fw2 f6"
-                >(October 2019 - September 2020, Mexico City)</span
-              >
-              <br />
+              <div class="fw6">Full-Stack developer</div>
               <div class="tj f5">
-                I worked on both the front and back end of their merchant web
-                app using <span class="b">PHP</span>,
-                <span class="b">Python</span>, <span class="b">AngularJS</span>,
-                <span class="b">MySQL</span>,
-                <span class="b">unit testing</span>,
-                <span class="b">Circle CI</span>.
+                <span class="b">PayJoy</span> · Mexico City · October 2019 – October 2020
+              </div>
+              <div class="tj f5" style="margin-top: 0.5rem;">
+                Developed and maintained merchant web applications, working across the full stack with <span class="b">PHP</span>, <span class="b">Python</span>, <span class="b">AngularJS</span>, and <span class="b">MySQL</span>. Integrated unit testing and <span class="b">CI/CD pipelines</span> using CircleCI, contributing to improved code quality and faster deployment cycles.
               </div>
               <br /><br />
             </li>
             <li>
-              <span class="rosa-deslavado"
-                >Istituto Europeo di Design Madrid
-              </span>
-              <span class="rosa-deslavado fw2 f6"
-                >(2018 - 2019, Madrid, Spain)</span
-              >
-              <br />
+              <div class="fw6">Front-end developer</div>
               <div class="tj f5">
-                As part of the Master in Digital Design, I worked as an intern
-                at IED’s Innovation Lab, developing projects for associated
-                companies. I participated in the design process and in the
-                development of sites such as carabanchelcreativa.com. I also
-                worked on a personal project: an online 3D music club for live
-                streaming virtual concerts. I received tutorship from engineers
-                and designers from companies such as BBVA and Cabify. We used
-                <span class="b">React.js</span>, <span class="b">Redux</span>,
-                <span class="b">Three.js</span>, <span class="b">Node.js</span>,
-                <span class="b">Socket.io</span> and
-                <span class="b">Firebase</span>.
+                <span class="b">Istituto Europeo di Design Madrid</span> · Madrid, Spain · October 2018 – July 2019
+              </div>
+              <div class="tj f5" style="margin-top: 0.5rem;">
+                Developed digital innovation projects for partner companies as part of the Master in Digital Design. Contributed to projects such as Carabanchel Creativa, mapping creative spaces in the neighborhood of Carabanchel in Madrid. Received mentorship from senior engineers and designers at companies such as BBVA and Cabify. Used <span class="b">React.js</span>, <span class="b">Redux</span>, <span class="b">Three.js</span>, <span class="b">Node.js</span>, <span class="b">Socket.io</span> and <span class="b">Firebase</span>.
               </div>
               <br /><br />
             </li>
             <li>
-              <span class="rosa-deslavado">memela.mx </span>
-              <span class="rosa-deslavado fw2 f6"
-                >(2012 – 2019, Guadalajara, México)</span
-              >
-              <br />
+              <div class="fw6">Front-end developer</div>
               <div class="tj f5">
-                I worked with this design agency as a freelancer ever since they
-                started, making static sites from their designs, developing
-                <span class="b">Wordpress</span> themes for their clients or
-                using other CMS such as
-                <span class="b">Sanity + React.js</span>.
+                <span class="b">Bigo</span> · Zapopan, Mexico · January 2018 – October 2018
+              </div>
+              <div class="tj f5" style="margin-top: 0.5rem;">
+                Developed e-commerce websites based on <span class="b">Ruby on Rails</span>, using <span class="b">JavaScript</span>, <span class="b">CSS</span>, and <span class="b">Bootstrap</span>. Contributed to the creation of internal projects based on Salesforce.
               </div>
               <br /><br />
             </li>
             <li>
-              <span class="rosa-deslavado">Bigo</span>
-              <span class="rosa-deslavado fw2 f6">
-                (January 2018 – october 2018, Guadalajara, México)
-              </span>
-              <br />
+              <div class="fw6">Senior Application Web developer</div>
               <div class="tj f5">
-                In this startup I worked as the Front End developer (<span
-                  class="b"
-                  >Rails, Javascript, CSS, Bootstrap</span
-                >) for ecommerce sites based on Ruby. I also worked on an
-                internal project based on Salesforce.
+                <span class="b">IBM</span> · Jalisco, Mexico · July 2017 – January 2018
+              </div>
+              <div class="tj f5" style="margin-top: 0.5rem;">
+                Developed the GUI for an IBM storage server's administrative console using <span class="b">Java</span>, <span class="b">JavaScript</span> and the <span class="b">Dojo</span> framework.
               </div>
               <br /><br />
             </li>
             <li>
-              <span class="rosa-deslavado">IBM </span>
-              <span class="rosa-deslavado fw2 f6"
-                >(july 2017 – January 2018, Guadalajara, México)
-              </span>
-              <br />
+              <div class="fw6">Full-stack Developer</div>
               <div class="tj f5">
-                Front end development for the administration GUI of an IBM
-                storage server, using
-                <span class="b">Java, Javascript</span> and the framework
-                <span class="b">Dojo</span>.
+                <span class="b">Sociala</span> · Zapopan, Mexico · February 2017 – July 2017
+              </div>
+              <div class="tj f5" style="margin-top: 0.5rem;">
+                Built an internal product leveraging the <span class="b">Twitter API</span>, <span class="b">Python</span>, <span class="b">PostgreSQL</span> and <span class="b">JavaScript</span>. Developed custom <span class="b">WordPress</span> themes for various clients.
               </div>
               <br /><br />
             </li>
             <li>
-              <span class="rosa-deslavado">Sociala </span>
-              <span class="rosa-deslavado fw2 f6"
-                >(february 2017 – june 2017, Guadalajara, México)
-              </span>
-              <br />
+              <div class="fw6">Front-end developer</div>
               <div class="tj f5">
-                I developed an internal product using the Twitter API,
-                <span class="b">Python, PostgreSQL</span> and
-                <span class="b">Javascript</span>. I also worked on
-                <span class="b">Wordpress</span> themes for the clients.
+                <span class="b">Metric Consulting</span> · Zapopan, Mexico · 2016 – 2017
+              </div>
+              <div class="tj f5" style="margin-top: 0.5rem;">
+                Developed e-commerce websites using <span class="b">JavaScript</span> and <span class="b">CSS</span>. Contributed to the creation of internal projects based on <span class="b">WordPress</span>.
               </div>
               <br /><br />
             </li>
             <li>
-              <span class="rosa-deslavado">Metric Consulting </span>
-              <span class="rosa-deslavado fw2 f6"
-                >(November 2016 – february 2017, Guadalajara, México)</span
-              >
-              <br />
+              <div class="fw6">Web developer</div>
               <div class="tj f5">
-                I helped developing an internal project: a dating website (using
-                <span class="b">PHP, CSS, Javascript</span>), as well as
-                <span class="b">Wordpress</span> sites for the clients.
+                <span class="b">Memela.mx</span> · Guadalajara, Mexico · 2012 – 2018
+              </div>
+              <div class="tj f5" style="margin-top: 0.5rem;">
+                Collaborated with the design agency since its inception, converting their creative designs into fully functional static websites and <span class="b">WordPress</span> themes. Also implemented <span class="b">headless CMS</span> solutions with Sanity.io integrated with <span class="b">React.js</span>.
               </div>
               <br /><br />
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="fl w-100">
-        <div class="ma4-ns br4 ma1 pa3 pa5-ns avenir bg-white">
-          <div class="f3 f1-ns fw6">Education</div>
-          <ul class="f4 lh-copy">
-            <li>
-              <span class="turquoise">IED Madrid </span>
-              <span class="turquoise fw2 f6">(2018-2019)</span>
-              <br />
-              <div class="tj f5">
-                A program aimed at full-stack developers and software engineers,
-                that are passionate about coding and new technologies (such as,
-                UX/UI, Visual design, design thinking), in short, people who
-                want to develop a global vision of the design process.
-              </div>
-              <br />
-            </li>
-            <li>
-              <span class="turquoise"
-                >Instituto Tecnológico de Estudios Superiores de Occidente</span
-              >
-              <span class="turquoise fw2 f6">(2012-2017)</span>
-              <br />
-              Computer Science degree <br /><br />
-            </li>
-            <li>
-              <span class="turquoise"
-                >Centro de Enseñanza Técnica Industrial
-              </span>
-              <span class="turquoise fw2 f6">(2002-2006)</span>
-              <br />Electronics and communication technical degree<br /><br />
             </li>
           </ul>
         </div>
       </div>
 
       <div class="fl w-100">
-        <div class="mh4-ns br4 mh1 pa3 pa5-ns avenir bg-white">
+        <div class="ma4-ns br4 ma1 pa3 pa5-ns avenir bg-white">
+          <div class="f3 f1-ns fw6">Education</div>
+          <ul class="f4 lh-copy">
+            <li>
+              <div class="fw6">Master in Digital Design</div>
+              <div class="tj f5">
+                <span class="b">Istituto Europeo di Design Madrid</span> · 2018 - 2019
+              </div>
+              <div class="tj f5" style="margin-top: 0.5rem;">
+                Interdisciplinary program bridging design and software development, focused on digital product innovation. Worked in IED's Innovation Lab on real-world projects for partner companies, blending UX/UI, design thinking, and full-stack development. Created a 3D virtual music club project, mentored by professionals from BBVA and Cabify.
+              </div>
+              <br />
+            </li>
+            <li>
+              <div class="fw6">Bachelor's Degree in Computer Science</div>
+              <div class="tj f5">
+                <span class="b">Instituto Tecnológico de Estudios Superiores de Occidente (ITESO)</span> · 2012 - 2017
+              </div>
+              <div style="margin-top: 0.5rem;"></div>
+              <br />
+            </li>
+            <li>
+              <div class="fw6">Technical Degree in Electronics and Communications</div>
+              <div class="tj f5">
+                <span class="b">Centro de Enseñanza Técnica Industrial</span> · 2002 - 2006
+              </div>
+              <div style="margin-top: 0.5rem;"></div>
+              <br />
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="fl w-100">
+        <div class="ma4-ns br4 ma1 pa3 pa5-ns avenir bg-white">
+          <div class="f3 f1-ns fw6">Volunteer Work</div>
+          <ul class="f4 lh-copy">
+            <li>
+              <div class="fw6">Volunteer Instructor - Voices Unveiled</div>
+              <div class="tj f5">
+                Remote / Afghanistan · 2023 – Present
+              </div>
+              <div class="tj f5" style="margin-top: 0.5rem;">
+                Volunteer instructor offering anonymized, remote lessons in web development for Afghan women via Voices Unveiled, a nonprofit supporting girls and women in Afghanistan affected by systemic gender-based bans on formal education.
+              </div>
+              <br /><br />
+            </li>
+            <li>
+              <div class="fw6">Web Developer - Radio Nopal</div>
+              <div class="tj f5">
+                Remote / Mexico City · 2023 – Present
+              </div>
+              <div class="tj f5" style="margin-top: 0.5rem;">
+                Built and maintain the website for Radio Nopal, a nonprofit web radio station based in Mexico City.
+              </div>
+              <br /><br />
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="fl w-100">
+        <div class="ma4-ns br4 ma1 pa3 pa5-ns avenir bg-white">
           <div class="f3 f1-ns fw6">Courses</div>
           <ul class="f4 lh-copy">
             <li>
-              <span class="turquoise">Centro de Medios Audiovisuales </span>
-              <span class="turquoise fw2 f6">(Guadalajara, 2004)</span>
-              <br />Audiovisual language, Photography, Video editing, Audio
-              recording and Sound Design<br /><br />
-            </li>
-            <li>
-              <span class="turquoise">Red Bull Music Academy</span>
-              <span class="turquoise fw2 f6">(Barcelona, 2008)</span>
+              <div class="fw6">European Summer School in Logic, Language and Information (ESSLLI)</div>
+              <div class="tj f5">
+                <span class="b">KU Leuven, Belgium</span> · 2024
+              </div>
+              <div style="margin-top: 0.5rem;"></div>
               <br />
-              Music production workshops <br /><br />
             </li>
             <li>
-              <span class="turquoise">Digital Invaders </span>
-              <span class="turquoise fw2 f6">(Coahuila, México 2009)</span>
-              <br />School of Interactive and digital media<br /><br />
+              <div class="fw6">The Musical Web</div>
+              <div class="tj f5">
+                <span class="b">School for Poetic Computation - New York City / Remote</span> · 2023
+              </div>
+              <div style="margin-top: 0.5rem;"></div>
+              <br />
             </li>
             <li>
-              <span class="turquoise"
-                >Stanford University & Universitat Pompeu Fabra of Barcelona
-              </span>
-              <span class="turquoise fw2 f6">(Coursera.org, 2015)</span>
-              <br />Audio Signal Processing for Music Applications <br /><br />
+              <div class="fw6">Red Bull Music Academy</div>
+              <div class="tj f5">
+                <span class="b">Music production workshops - Barcelona, Spain</span> · 2008
+              </div>
+              <div style="margin-top: 0.5rem;"></div>
+              <br />
+            </li>
+            <li>
+              <div class="fw6">Digital Invaders</div>
+              <div class="tj f5">
+                <span class="b">School of Interactive and digital media - Saltillo, Mexico</span> · 2009
+              </div>
+              <div style="margin-top: 0.5rem;"></div>
+              <br />
+            </li>
+            <li>
+              <div class="fw6">Audio Recording and Sound Design</div>
+              <div class="tj f5">
+                <span class="b">Centro de Medios Audiovisuales - Guadalajara, Mexico</span> · 2011
+              </div>
+              <div style="margin-top: 0.5rem;"></div>
+              <br />
             </li>
           </ul>
         </div>
@@ -319,22 +352,34 @@
           <div class="f3 f1-ns fw6">Talks</div>
           <ul class="f4 lh-copy">
             <li>
-              <span class="rosa-deslavado">TEDx</span>
-              <span class="rosa-deslavado fw2 f6">(Guadalajara, 2014)</span>
-              <br />“From musical to social harmony”. Talk about the maths of
-              musical harmony and the function of music in society. <br /><br />
-            </li>
-            <li>
-              <span class="rosa-deslavado">Campus Party</span>
-              <span class="rosa-deslavado fw2 f6"> (México City, 2010) </span>
+              <div class="fw6">TEDx</div>
+              <div class="tj f5">
+                <span class="b">Guadalajara, Mexico</span> · 2014
+              </div>
+              <div class="tj f5" style="margin-top: 0.5rem;">
+                "From Musical to Social Harmony". Talk on the mathematical foundations of harmony and the social role of music as a universal language.
+              </div>
               <br />
-              Talk/Workshop about 8bit music and music made with Nintendo Game
-              Boys <br /><br />
             </li>
             <li>
-              <span class="rosa-deslavado">PechaKucha Global Night </span>
-              <span class="rosa-deslavado fw2 f6">(Guadalajara, 2015)</span>
-              <br />Brief talk about the different types of audio synthesis<br /><br />
+              <div class="fw6">Campus Party</div>
+              <div class="tj f5">
+                <span class="b">Mexico City</span> · 2010
+              </div>
+              <div class="tj f5" style="margin-top: 0.5rem;">
+                Workshop on 8-bit Music. Live demonstration and workshop on music created with Nintendo Game Boys.
+              </div>
+              <br />
+            </li>
+            <li>
+              <div class="fw6">PechaKucha Global Night</div>
+              <div class="tj f5">
+                <span class="b">Guadalajara</span> · 2015
+              </div>
+              <div class="tj f5" style="margin-top: 0.5rem;">
+                Short-form talk on the different types of sound synthesis
+              </div>
+              <br />
             </li>
           </ul>
         </div>
@@ -345,15 +390,19 @@
           <div class="f4 fw6">Spoken languages:</div>
           <ul class="f4 lh-copy">
             <li>
-              <span class="">Spanish: native speaker</span>
+              <span class="">Spanish: Native speaker</span>
               <br /><br />
             </li>
             <li>
-              <span class="">English: TOEFL ITP - 630 pts</span>
+              <span class="">English: Advanced (TOEFL iBT 93/120, Duolingo English Test 135)</span>
               <br /><br />
             </li>
             <li>
-              <span class="">French: TCF level B1</span>
+              <span class="">French: Intermediate (TCF B1)</span>
+              <br /><br />
+            </li>
+            <li>
+              <span class="">Portuguese: Basic</span>
             </li>
           </ul>
         </div>
@@ -372,6 +421,9 @@
           <a href="https://github.com/pesinasiller" target="_blank">
             <img alt="github" src="img/github.svg" />
           </a>
+          <a href="https://pesinasiller.github.io" target="_blank">
+            <img alt="website" src="img/website.svg" />
+          </a>
         </div>
       </div>
     </div>
@@ -381,7 +433,7 @@
 
       setInterval(() => {
         portfolio.style.color =
-          portfolio.style.color === "coral" ? "turquoise" : "coral";
+          portfolio.style.color === "black" ? "transparent" : "black";
       }, 500);
     </script>
   </body>
